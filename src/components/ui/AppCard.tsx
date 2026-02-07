@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-
 interface AppCardProps {
   title: string;
   desc: string;
@@ -13,7 +12,12 @@ const AppCard = ({ title, desc, path }: AppCardProps) => {
         <h2 className="text-3xl font-bold h-16">{title}</h2>
         <p className="text-orange-800/70 font-semibold text-lg">{desc}</p>
       </div>
-      <Link to={path} className="bg-amber-600 hover:bg-amber-500 text-white px-6 py-2 text-lg rounded-lg text-center font-semibold">Take me there</Link>
+      <Link
+        to={path}
+        className="bg-amber-600 hover:bg-amber-500 text-white px-6 py-2 text-lg rounded-lg text-center font-semibold"
+      >
+        Take me there
+      </Link>
     </div>
   );
 };

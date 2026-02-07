@@ -111,11 +111,11 @@ const AuthForm = ({ type = "login" }: AuthFormProps) => {
     <Container>
       <div className="w-[50%] mx-auto flex flex-col gap-12">
         <div className="flex flex-col items-center justify-center gap-4">
-          <div className="w-16 aspect-square overflow-hidden p-4 rounded-full flex items-center justify-center bg-amber-100">
+          <div className="flex items-center justify-center w-16 p-4 overflow-hidden rounded-full aspect-square bg-amber-100">
             <img
               src={type === "login" ? loginSvg : signupSvg}
               alt="login"
-              className="object-center object-cover opacity-80"
+              className="object-cover object-center opacity-80"
             />
           </div>
           <h2 className="text-4xl font-bold">
@@ -124,19 +124,19 @@ const AuthForm = ({ type = "login" }: AuthFormProps) => {
         </div>
         <form
           onSubmit={handleSubmit(handleAuthSubmit)}
-          className="flex flex-col gap-8 items-center"
+          className="flex flex-col items-center gap-8"
         >
           {type === "signup" && (
-            <div className="flex gap-8 w-full">
+            <div className="flex w-full gap-8">
               <label
                 htmlFor="first-name"
-                className="relative p-4 border border-gray-400 rounded-lg text-xl hover:border-gray-700 flex-1"
+                className="relative flex-1 p-4 text-xl border border-gray-400 rounded-lg hover:border-gray-700"
               >
                 <input
                   id="first-name"
                   type="text"
                   placeholder=""
-                  className="peer outline-none border-none bg-transparent w-full"
+                  className="w-full bg-transparent border-none outline-none peer"
                   {...register("firstName")}
                 />
                 <span
@@ -146,58 +146,58 @@ const AuthForm = ({ type = "login" }: AuthFormProps) => {
                 >
                   First Name
                 </span>
-                <p className="absolute -bottom-3 left-0 right-0 translate-y-1/2 text-red-500 text-sm">
+                <p className="absolute left-0 right-0 text-sm text-red-500 translate-y-1/2 -bottom-3">
                   {(errors as FieldErrors<SignupData>).firstName?.message || ""}
                 </p>
               </label>
               <label
                 htmlFor="last-name"
-                className="relative p-4 border border-gray-400 rounded-lg text-xl hover:border-gray-700 flex-1"
+                className="relative flex-1 p-4 text-xl border border-gray-400 rounded-lg hover:border-gray-700"
               >
                 <input
                   id="last-name"
                   type="text"
                   placeholder=""
-                  className="peer outline-none border-none bg-transparent w-full"
+                  className="w-full bg-transparent border-none outline-none peer"
                   {...register("lastName")}
                 />
                 <span className="absolute left-4 top-1/2 -translate-y-1/2 bg-white px-1 text-gray-500 transition-all duration-200 peer-focus:top-0 peer-focus:text-sm peer-focus:font-semibold peer-[:not(:placeholder-shown)]:font-semibold peer-focus:text-orange-700 peer-[:not(:placeholder-shown)]:top-0 peer-[:not(:placeholder-shown)]:text-sm peer-[:not(:placeholder-shown)]:text-orange-700">
                   Last Name
                 </span>
-                <p className="absolute -bottom-3 left-0 right-0 translate-y-1/2 text-red-500 text-sm">
+                <p className="absolute left-0 right-0 text-sm text-red-500 translate-y-1/2 -bottom-3">
                   {(errors as FieldErrors<SignupData>).lastName?.message || ""}
                 </p>
               </label>
             </div>
           )}
-          <div className="flex flex-col gap-8 w-full">
+          <div className="flex flex-col w-full gap-8">
             <label
               htmlFor="email"
-              className="relative p-4 border border-gray-400 rounded-lg text-xl hover:border-gray-700 flex-1"
+              className="relative flex-1 p-4 text-xl border border-gray-400 rounded-lg hover:border-gray-700"
             >
               <input
                 id="email"
                 type="text"
                 placeholder=""
-                className="peer outline-none border-none bg-transparent w-full"
+                className="w-full bg-transparent border-none outline-none peer"
                 {...register("email")}
               />
               <span className="absolute left-4 top-1/2 -translate-y-1/2 bg-white px-1 text-gray-500 transition-all duration-200 peer-focus:top-0 peer-focus:text-sm peer-focus:font-semibold peer-[:not(:placeholder-shown)]:font-semibold peer-focus:text-orange-700 peer-[:not(:placeholder-shown)]:top-0 peer-[:not(:placeholder-shown)]:text-sm peer-[:not(:placeholder-shown)]:text-orange-700">
                 Email
               </span>
-              <p className="absolute -bottom-3 left-0 right-0 translate-y-1/2 text-red-500 text-sm">
+              <p className="absolute left-0 right-0 text-sm text-red-500 translate-y-1/2 -bottom-3">
                 {errors.email ? errors.email.message : ""}
               </p>
             </label>
             <label
               htmlFor="password"
-              className="relative p-4 border border-gray-400 rounded-lg text-xl hover:border-gray-700 flex-1"
+              className="relative flex-1 p-4 text-xl border border-gray-400 rounded-lg hover:border-gray-700"
             >
               <input
                 id="password"
                 type={showPassword ? "text" : "password"}
                 placeholder=""
-                className="peer outline-none border-none bg-transparent w-full"
+                className="w-full bg-transparent border-none outline-none peer"
                 {...register("password")}
               />
               <span className="absolute left-4 top-1/2 -translate-y-1/2 bg-white px-1 text-gray-500 transition-all duration-200 peer-focus:top-0 peer-focus:text-sm peer-focus:font-semibold peer-focus:text-orange-700 peer-[:not(:placeholder-shown)]:top-0 peer-[:not(:placeholder-shown)]:text-sm peer-[:not(:placeholder-shown)]:text-orange-700 peer-[:not(:placeholder-shown)]:font-semibold">
@@ -210,18 +210,18 @@ const AuthForm = ({ type = "login" }: AuthFormProps) => {
               >
                 {showPassword ? <RiEyeFill /> : <RiEyeOffFill />}
               </button>
-              <p className="absolute -bottom-3 left-0 right-0 translate-y-1/2 text-red-500 text-sm">
+              <p className="absolute left-0 right-0 text-sm text-red-500 translate-y-1/2 -bottom-3">
                 {errors.password ? errors.password.message : ""}
               </p>
             </label>
           </div>
-          <p className="text-red-500 text-lg">
+          <p className="text-lg text-red-500">
             {errors.root ? errors.root.message : ""}
           </p>
           <button
             type="submit"
             disabled={isSubmitting}
-            className="text-xl font-semibold bg-orange-600 px-6 py-2 text-white rounded-lg active:bg-orange-500 cursor-pointer disabled:bg-orange-400 disabled:cursor-not-allowed"
+            className="px-6 py-2 text-xl font-semibold text-white bg-orange-600 rounded-lg cursor-pointer active:bg-orange-500 disabled:bg-orange-400 disabled:cursor-not-allowed"
           >
             {type === "login" && !isSubmitting
               ? "Login"
@@ -231,7 +231,7 @@ const AuthForm = ({ type = "login" }: AuthFormProps) => {
           </button>
         </form>
       </div>
-      <p className="font-semibold mx-auto w-fit mt-8 text-lg">
+      <p className="mx-auto mt-8 text-lg font-semibold w-fit">
         {type === "login"
           ? "Don't have an account? "
           : "Already have an account? "}

@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+#root {
+  min-height: 100vh;
+}
+
+button {
+  cursor: pointer;
+}
+
+input[type="checkbox"] {
+  cursor: pointer;
+}

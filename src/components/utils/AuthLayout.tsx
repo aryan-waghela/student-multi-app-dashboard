@@ -29,7 +29,7 @@ const AuthLayout = ({ children, authentication = true }: AuthLayoutProps) => {
 
   if (!isAllowed)
     return (
-      <Container className="h-100 flex items-center justify-center">
+      <Container className="h-full flex items-center justify-center">
         <h2 className="mx-auto w-fit text-6xl font-bold text-gray-700 select-none ">
           Loading...
         </h2>

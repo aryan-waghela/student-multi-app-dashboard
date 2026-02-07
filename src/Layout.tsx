@@ -1,27 +1,14 @@
 import { Outlet } from "react-router-dom";
 import { Header } from "./components/ui";
-import { useAppDispatch } from "./redux/hooks/hooks";
-import { useEffect } from "react";
-import { checkAuthThunk } from "./redux/features/authSlice";
 
 const Layout = () => {
-  const dispatch = useAppDispatch();
-
-  useEffect(() => {
-    try {
-      dispatch(checkAuthThunk()).unwrap();
-    } catch (error) {
-      console.log(
-        error instanceof Error ? error.message : "Error in checkAuthThunk",
-      );
-    }
-  }, [dispatch]);
-
   return (
-    <>
+    <div className="flex flex-col min-h-screen">
       <Header />
-      <Outlet />
-    </>
+      <main className="flex-1 flex flex-col">
+        <Outlet />
+      </main>
+    </div>
   );
 };
 
